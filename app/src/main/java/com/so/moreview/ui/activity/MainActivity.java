@@ -17,8 +17,6 @@ import com.so.moreview.uitls.UIUtil;
 
 import java.util.LinkedList;
 
-import static com.so.moreview.R.id.ll_content;
-
 public class MainActivity extends AppCompatActivity {
 
     @android.support.annotation.IdRes
@@ -43,21 +41,21 @@ public class MainActivity extends AppCompatActivity {
      * 初始化自定义ui
      */
     private void initUI() {
-        mLlContent = (LinearLayout) findViewById(ll_content);
-        ImageButton ibAdd1 = (ImageButton) findViewById(R.id.ib_add1);
+        ImageButton ibAdd = (ImageButton) findViewById(R.id.ib_add);
+        mLlContent = (LinearLayout) findViewById(R.id.ll_content);
 
         mAddList = new LinkedList<>();
         mDelList = new LinkedList<>();
 
         // 添加第一个按钮
-        mAddList.add(ibAdd1);
+        mAddList.add(ibAdd);
         mDelList.add(null);
 
-        ibAdd1.setOnClickListener(new View.OnClickListener() {
+        ibAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 获取输入框高度
-                mEtHeight = findViewById(R.id.et_item1).getHeight();
+                mEtHeight = findViewById(R.id.et_item).getHeight();
 
                 addItem(v);
             }
@@ -101,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             ll.setOrientation(LinearLayout.VERTICAL);
 
             // et_item
-            final EditText et = new EditText(MainActivity.this);
+            EditText et = new EditText(MainActivity.this);
             LinearLayout.LayoutParams etParams =
                     new LinearLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT, mEtHeight);
